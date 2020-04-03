@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register Student
+{% endblock %}
+
+{% block body %}
+    <h1>Register Student</h1>
+
+    <form action="{{ url_for('register') }}" method="post">
+
+        <div class="form-group">
+            <select class="form-control" name="course_id">
+                {% for course in courses %}
+                    <option value="{{ course.id }}">{{ course.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="name" placeholder="Student Name">
+        </div>
+
+		<div class="form-group">
+            <input class="form-control" name="username" placeholder="Student Username">
+        </div>
+
+		<div class="form-group">
+            <input class="form-control" name="password" placeholder="Student Password">
+        </div>
+
+		<div class="form-group">
+            <input class="form-control" name="coursepassword" placeholder="Course Password">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+        </div>
+
+    </form>
+{% endblock %}
